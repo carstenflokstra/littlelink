@@ -1,8 +1,7 @@
-// vite.config.ts
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-    base: './', // Use relative paths
+    base: '/littlelink/', // This should match your GitHub repository name
     server: {
         port: 3000,
         open: true,
@@ -10,6 +9,5 @@ export default defineConfig({
     build: {
         outDir: 'dist',
         assetsDir: 'assets',
-        sourcemap: true,
     }
 })
