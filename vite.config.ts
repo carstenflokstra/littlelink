@@ -1,13 +1,24 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-    base: '/littlelink/', // This should match your GitHub repository name
+    base: '/', 
     server: {
         port: 3000,
-        open: true,
     },
     build: {
         outDir: 'dist',
         assetsDir: 'assets',
+    },
+    // Add this to properly handle TypeScript
+    optimizeDeps: {
+        include: [],
+    },
+    // Add SCSS configuration
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `$injectedColor: orange;`
+            }
+        }
     }
 })
