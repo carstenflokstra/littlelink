@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import './style.scss'
+import '../style.scss'
 
 // Remove CSS imports since they're in index.html now
 
