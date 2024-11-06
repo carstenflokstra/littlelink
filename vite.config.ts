@@ -7,13 +7,12 @@ export default defineConfig({
     },
     build: {
         outDir: 'dist',
-        assetsDir: 'assets',
+        copyPublicDir: true, // Ensure public directory is copied
+        emptyOutDir: true, // Clean dist before build
     },
-    // Add this to properly handle TypeScript
     optimizeDeps: {
         include: [],
     },
-    // Add SCSS configuration
     css: {
         preprocessorOptions: {
             scss: {
