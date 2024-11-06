@@ -1,23 +1,24 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-    base: '/',
-    server: {
-        port: 3000,
-    },
+    base: './', // Keep relative paths
     build: {
         outDir: 'dist',
-        copyPublicDir: true, // Ensure public directory is copied
-        emptyOutDir: true, // Clean dist before build
-    },
-    optimizeDeps: {
-        include: [],
+        copyPublicDir: true,
+        emptyOutDir: true,
+        rollupOptions: {
+            output: {
+                entryFileNames: '[name].js', // Remove assets/ prefix
+                chunkFileNames: '[name].js',
+                assetFileNames: '[name][extname]'
+            },
+        },
     },
     css: {
         preprocessorOptions: {
             scss: {
-                additionalData: `$injectedColor: orange;`
-            }
-        }
-    }
-})
+                additionalData: `$primary-color: blue;`
+            },
+        },
+    },
+});
