@@ -1,24 +1,15 @@
 import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-    base: './', // Keep relative paths
+    plugins: [vue()],
+    base: './',
     build: {
         outDir: 'dist',
         copyPublicDir: true,
         emptyOutDir: true,
-        rollupOptions: {
-            output: {
-                entryFileNames: '[name].js', // Remove assets/ prefix
-                chunkFileNames: '[name].js',
-                assetFileNames: '[name][extname]'
-            },
-        },
     },
     css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `$primary-color: blue;`
-            },
-        },
+        devSourcemap: true,
     },
 });
